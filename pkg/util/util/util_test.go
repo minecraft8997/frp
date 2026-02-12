@@ -17,7 +17,7 @@ func TestRandId(t *testing.T) {
 func TestGetAuthKey(t *testing.T) {
 	require := require.New(t)
 	key := GetAuthKey("1234", 1488720000)
-	require.Equal("6df41a43725f0c770fd56379e12acf8c", key)
+	require.Equal("ff6216b8258ba3ebb33f4c3af86ba2544d43badd81fbd08efdbe26410790975a", key)
 }
 
 func TestParseRangeNumbers(t *testing.T) {
