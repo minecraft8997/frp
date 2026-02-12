@@ -15,7 +15,7 @@
 package util
 
 import (
-	"crypto/md5"
+	"crypto/sha256"
 	"crypto/rand"
 	"crypto/subtle"
 	"encoding/hex"
@@ -48,10 +48,10 @@ func RandIDWithLen(idLen int) (id string, err error) {
 }
 
 func GetAuthKey(token string, timestamp int64) (key string) {
-	md5Ctx := md5.New()
-	md5Ctx.Write([]byte(token))
-	md5Ctx.Write([]byte(strconv.FormatInt(timestamp, 10)))
-	data := md5Ctx.Sum(nil)
+	sha256Ctx := sha256.New()
+	sha256Ctx.Write([]byte(token))
+	sha256Ctx.Write([]byte(strconv.FormatInt(timestamp, 10)))
+	data := sha256Ctx.Sum(nil)
 	return hex.EncodeToString(data)
 }
 
